@@ -109,10 +109,10 @@ $sheets = @(
   @{
     Name = "Gastos"
     Rows = @(
-      @("Categoria", "Proveedor", "Concepto", "Gasto", "Observaciones"),
-      @("Experiencia", "Proveedor A", "Catering y punto de hidratacion", 2700000, "Ejecutado"),
-      @("Experiencia", "Proveedor B", "Produccion del evento", 2100000, "Ejecutado"),
-      @("Comunicacion", "Agencia de medios", "Pauta digital", 3900000, "En curso")
+      @("Categoria", "Proveedor", "Concepto", "Modalidad", "Gasto", "Observaciones"),
+      @("Experiencia", "Proveedor A", "Catering y punto de hidratacion", "Efectivo", 2700000, "Pago directo al proveedor"),
+      @("Experiencia", "Proveedor B", "Produccion del evento", "Efectivo", 2100000, "Pago directo al proveedor"),
+      @("Comunicacion", "Influencer", "Contenido de apertura", "Canje de prendas", 1500000, "Entregado en producto")
     )
   },
   @{

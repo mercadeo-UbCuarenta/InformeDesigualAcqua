@@ -20,6 +20,7 @@
       <a href="#resultados">Resultados</a>
       <a href="#gastos">Gastos</a>
       <a href="#acciones">Acciones</a>
+      <a href="#pauta-digital">Pauta digital</a>
       <a href="#evidencias">Evidencias</a>
     </nav>
     <button class="edit-toggle" id="editToggle" type="button">
@@ -190,19 +191,18 @@
         </div>
         <div class="spend-summary">
           <div><span>Inversión total</span><strong data-field="gasto-total">$19,4M</strong></div>
-          <div><span>Experiencia</span><strong data-field="gasto-experiencia">$4,9M</strong></div>
-          <div><span>Comunicación</span><strong data-field="gasto-comunicacion">$14,5M</strong></div>
+          <div class="cash-spend"><span>Pagado en efectivo</span><strong data-field="gasto-efectivo">$14,8M</strong></div>
+          <div class="barter-spend"><span>Canje de prendas</span><strong data-field="gasto-canje">$4,6M</strong></div>
         </div>
       </div>
       <div class="table-wrap">
-        <table>
+        <table class="expense-table">
           <thead>
-            <tr><th>Categoría</th><th>Proveedor</th><th>Concepto</th><th>Gasto</th><th>Observaciones</th></tr>
+            <tr><th>Categoría</th><th>Proveedor</th><th>Concepto</th><th>Modalidad</th><th>Valor</th><th>Observaciones</th></tr>
           </thead>
           <tbody id="expenseRows">
-            <tr><td>Experiencia</td><td>Proveedor evento</td><td>Catering y punto de hidratación</td><td>$2,7M</td><td>Ejecutado</td></tr>
-            <tr><td>Experiencia</td><td>Producción local</td><td>Desfile y modelos</td><td>$1,1M</td><td>Ejecutado</td></tr>
-            <tr><td>Comunicación</td><td>Agencia de medios</td><td>Pauta digital y exterior</td><td>$9,3M</td><td>En curso</td></tr>
+            <tr><td>Experiencia</td><td>Proveedor evento</td><td>Catering y punto de hidratación</td><td><span class="payment-badge cash">Efectivo</span></td><td>$2,7M</td><td>Pago directo al proveedor</td></tr>
+            <tr><td>Comunicación</td><td>Influencer</td><td>Contenido de apertura</td><td><span class="payment-badge barter">Canje de prendas</span></td><td>$1,5M</td><td>Entregado en producto</td></tr>
           </tbody>
         </table>
       </div>
@@ -231,16 +231,24 @@
           </tbody>
         </table>
       </div>
-      <div class="channel-heading">
-        <div>
-          <span>Alcance digital</span>
-          <h3>Resultados de pauta</h3>
+      <div class="digital-feature" id="pauta-digital">
+        <div class="channel-heading">
+          <div>
+            <span>Inversión de comunicación</span>
+            <h3>Resultados de pauta digital</h3>
+          </div>
+          <p>Lectura consolidada de los canales que impulsaron la convocatoria y sostuvieron la comunicación posterior.</p>
         </div>
-        <p>Desempeño de los canales que apoyaron la convocatoria y el sostenimiento posterior.</p>
-      </div>
-      <div class="digital-grid" id="digitalGrid">
-        <article><span>YouTube</span><strong>1,04M</strong><p>impresiones</p><div><b>1.548</b><small>clics</small></div></article>
-        <article><span>Meta</span><strong>676K</strong><p>impresiones</p><div><b>1.461</b><small>clics</small></div></article>
+        <div class="digital-summary">
+          <article><span>Inversión digital</span><strong data-field="digital-investment">$6,2M</strong><small>Consumo reportado en plataformas</small></article>
+          <article><span>Impresiones</span><strong data-field="digital-impressions">1,72M</strong><small>Alcance acumulado</small></article>
+          <article><span>Clics</span><strong data-field="digital-clicks">3.009</strong><small>Interacciones hacia el contenido</small></article>
+          <article><span>Costo por clic</span><strong data-field="digital-cpc">$2.046</strong><small>Eficiencia consolidada</small></article>
+        </div>
+        <div class="digital-grid" id="digitalGrid">
+          <article><span>YouTube</span><strong>1,04M</strong><p>impresiones · 0,2% CTR</p><div><b>1.548</b><small>clics · inversión $4,2M</small></div></article>
+          <article><span>Meta</span><strong>676K</strong><p>impresiones · 0,2% CTR</p><div><b>1.461</b><small>clics · inversión $2,0M</small></div></article>
+        </div>
       </div>
     </section>
 

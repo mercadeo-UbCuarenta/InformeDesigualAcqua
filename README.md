@@ -20,7 +20,7 @@ Los cambios se almacenan localmente en el navegador. La opción **Exportar respa
 - `Trafico`: tráfico exterior, ingreso a tienda y conversión.
 - `Pauta Digital`: impresiones, clics, CTR e inversión.
 - `Momentos`: lectura previa, día del evento y periodo posterior.
-- `Gastos`: proveedor, concepto, gasto y observaciones.
+- `Gastos`: proveedor, concepto, modalidad (`Efectivo` o `Canje de prendas`), gasto y observaciones.
 - `Acciones`: actividades de comunicación y ejecución.
 - `Dinamicas`: mecánicas comerciales y resultados.
 - `Resultados`: hallazgos gerenciales.

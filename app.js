@@ -1,4 +1,4 @@
-const STORAGE_KEY = "ub40-event-report-v2";
+const STORAGE_KEY = "ub40-event-report-v3";
 const content = document.querySelector("#editableContent");
 const footer = document.querySelector("footer");
 const editToggle = document.querySelector("#editToggle");

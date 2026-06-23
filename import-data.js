@@ -31,7 +31,7 @@
   const displayPercent = value => {
     if (value === "" || value === undefined) return "—";
     const raw = number(value);
-    const percentage = Math.abs(raw) <= 1 ? raw * 100 : raw;
+    const percentage = Math.abs(raw) <= 3 ? raw * 100 : raw;
     return `${percentage.toLocaleString("es-CO", {maximumFractionDigits:1})}%`;
   };
   const excelDate = value => {
@@ -215,28 +215,42 @@
   }
 
   function applyExpenses(rows) {
-    const result = tableRows(rows, [], row => `<tr>
-      <td>${escapeHtml(pick(row, "categoria", "categoría"))}</td>
-      <td>${escapeHtml(pick(row, "proveedor"))}</td>
-      <td>${escapeHtml(pick(row, "concepto"))}</td>
-      <td>${displayMoney(pick(row, "gasto"))}</td>
-      <td>${escapeHtml(pick(row, "observacion", "observación", "lectura"))}</td>
-    </tr>`);
+    const paymentMode = row => {
+      const explicit = pick(row, "modalidad", "forma de pago", "tipo de pago");
+      if (explicit) return String(explicit);
+      const observation = normalize(pick(row, "observaciones", "observacion", "observación", "lectura"));
+      return observation.includes("producto") || observation.includes("canje") || observation.includes("prenda")
+        ? "Canje de prendas"
+        : "Efectivo";
+    };
+    const result = tableRows(rows, [], row => {
+      const mode = paymentMode(row);
+      const isBarter = normalize(mode).includes("canje") || normalize(mode).includes("producto");
+      const observation = pick(row, "observaciones", "observacion", "observación", "lectura") || (isBarter ? "Entregado en producto" : "Pago en efectivo");
+      return `<tr>
+        <td>${escapeHtml(pick(row, "categoria", "categoría"))}</td>
+        <td>${escapeHtml(pick(row, "proveedor"))}</td>
+        <td>${escapeHtml(pick(row, "concepto"))}</td>
+        <td><span class="payment-badge ${isBarter ? "barter" : "cash"}">${escapeHtml(isBarter ? "Canje de prendas" : "Efectivo")}</span></td>
+        <td>${displayMoney(pick(row, "gasto"))}</td>
+        <td>${escapeHtml(observation)}</td>
+      </tr>`;
+    });
     if (result.count) document.querySelector("#expenseRows").innerHTML = result.html;
     if (rows.length > 1) {
       const headers = rows[0];
       const data = rows.slice(1).filter(row => row.some(value => value !== undefined && value !== "")).map(row => rowObject(headers, row));
       const totals = data.reduce((sum, row) => {
-        const category = normalize(pick(row, "categoria", "categoría"));
         const amount = number(pick(row, "gasto"));
+        const mode = normalize(paymentMode(row));
         sum.total += amount;
-        if (category.includes("experiencia")) sum.experience += amount;
-        if (category.includes("comunicacion")) sum.communication += amount;
+        if (mode.includes("canje") || mode.includes("producto")) sum.barter += amount;
+        else sum.cash += amount;
         return sum;
-      }, {total:0, experience:0, communication:0});
+      }, {total:0, cash:0, barter:0});
       setText('[data-field="gasto-total"]', displayMoney(totals.total));
-      setText('[data-field="gasto-experiencia"]', displayMoney(totals.experience));
-      setText('[data-field="gasto-comunicacion"]', displayMoney(totals.communication));
+      setText('[data-field="gasto-efectivo"]', displayMoney(totals.cash));
+      setText('[data-field="gasto-canje"]', displayMoney(totals.barter));
     }
     return result.count || 0;
   }
@@ -416,6 +430,16 @@
       });
     }
     if (!platforms.length) return 0;
+    const totals = platforms.reduce((sum, item) => {
+      sum.impressions += number(item.impressions);
+      sum.clicks += number(item.clicks);
+      sum.spend += number(item.spend);
+      return sum;
+    }, {impressions:0, clicks:0, spend:0});
+    setText('[data-field="digital-investment"]', displayMoney(totals.spend));
+    setText('[data-field="digital-impressions"]', compactNumber(totals.impressions));
+    setText('[data-field="digital-clicks"]', displayNumber(totals.clicks));
+    setText('[data-field="digital-cpc"]', displayMoney(totals.clicks ? totals.spend / totals.clicks : 0));
     document.querySelector("#digitalGrid").innerHTML = platforms.map(item => `<article>
       <span>${escapeHtml(item.name)}</span>
       <strong>${compactNumber(item.impressions)}</strong>
