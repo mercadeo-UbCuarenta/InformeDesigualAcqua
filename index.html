@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111">
+  <title>Informe gerencial de evento | UB Cuarenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="published-mode">
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Ir al inicio">
+      <img src="assets/ub-cuarenta.png" alt="UB Cuarenta">
+    </a>
+    <nav aria-label="Navegación del informe">
+      <a href="#resumen">Resumen</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#gastos">Gastos</a>
+      <a href="#acciones">Acciones</a>
+      <a href="#pauta-digital">Pauta digital</a>
+      <a href="#evidencias">Evidencias</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <img class="hero-bg" src="assets/evento-principal.jpg" alt="Fotografía principal del evento">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow" data-field="tipo-evento">Apertura nueva tienda</p>
+        <h1 data-field="nombre-evento">Desigual Acqua</h1>
+        <div class="hero-meta">
+          <span data-field="tienda">Desigual Acqua</span>
+          <span data-field="ciudad">Ibagué</span>
+          <span data-field="fecha-evento">29 de mayo de 2026</span>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <span>Resultado comercial</span>
+        <strong data-field="resultado-venta">$115,5M</strong>
+        <small data-field="cumplimiento-venta">112% de cumplimiento vs meta</small>
+      </aside>
+    </section>
+
+    <section class="section shell" id="resumen">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 / Resumen ejecutivo</p>
+          <h2>Lectura gerencial del evento</h2>
+        </div>
+        <p class="section-intro" data-field="resumen-ejecutivo">La apertura combinó comunicación masiva, pauta digital, presencia exterior y una experiencia de marca en tienda. El día del evento concentró el pico de tráfico y la mayor venta diaria del periodo analizado.</p>
+      </div>
+
+      <div class="kpi-grid" id="kpiGrid">
+        <article class="kpi-card primary">
+          <span>Venta acumulada</span>
+          <strong>$115,5M</strong>
+          <small>Periodo completo del informe</small>
+          <i style="width:100%"></i>
+        </article>
+        <article class="kpi-card">
+          <span>Venta día del evento</span>
+          <strong>$15,0M</strong>
+          <small>25 transacciones registradas</small>
+          <i style="width:100%"></i>
+        </article>
+        <article class="kpi-card">
+          <span>ATV día del evento</span>
+          <strong>$602K</strong>
+          <small>Promedio por transacción positiva</small>
+          <i style="width:100%"></i>
+        </article>
+        <article class="kpi-card">
+          <span>Tráfico en tienda</span>
+          <strong>442</strong>
+          <small>16,5% de captación exterior</small>
+          <i style="width:100%"></i>
+        </article>
+      </div>
+
+      <div class="insight-grid">
+        <article>
+          <span>Hallazgo principal</span>
+          <p data-field="hallazgo-principal">El evento elevó el ingreso a tienda a 442 personas, muy por encima del comportamiento de los días posteriores, y alcanzó una captación exterior del 16,5%.</p>
+        </article>
+        <article>
+          <span>Recomendación</span>
+          <p data-field="recomendacion">Mantener la pauta y el CRM posterior, midiendo la recompra generada por el bono y diferenciando la venta orgánica de la atribuible a cada acción.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section results-band" id="resultados">
+      <div class="shell">
+        <div class="section-heading light">
+          <div>
+            <p class="eyebrow">02 / Resultados obtenidos</p>
+            <h2>Impacto por momento del evento</h2>
+          </div>
+          <p class="section-intro" data-field="periodo-medicion">Previo: 24 al 28 de mayo · Evento: 29 de mayo · Posterior: 30 de mayo al 22 de junio de 2026.</p>
+        </div>
+
+        <article class="event-day-panel">
+          <div>
+            <span>Día del evento</span>
+            <h3>Análisis neto de la jornada</h3>
+            <p data-field="analisis-dia-evento">La apertura fue el día de mayor venta del periodo, con $15,0M, 25 transacciones positivas y un ATV calculado de $602K. El tráfico en tienda alcanzó 442 personas.</p>
+          </div>
+          <div class="day-metrics">
+            <div><small>Venta día</small><strong data-field="venta-dia-evento">$15,0M</strong></div>
+            <div><small>ATV día</small><strong data-field="atv-dia-evento">$602K</strong></div>
+            <div><small>Tráfico tienda</small><strong data-field="trafico-dia-evento">442</strong></div>
+          </div>
+        </article>
+
+        <div class="performance-board">
+          <div class="chart-panel">
+            <div class="panel-title">
+              <div>
+                <span>Evolución comercial</span>
+                <h3>Venta diaria antes y después</h3>
+              </div>
+              <small>La fecha resaltada corresponde al evento</small>
+            </div>
+            <div class="sales-chart" id="salesChart" aria-label="Gráfico de venta diaria"></div>
+          </div>
+          <div class="traffic-panel">
+            <span>Tráfico del día</span>
+            <strong data-field="trafico-tienda-dia">442</strong>
+            <p>Personas ingresaron a la tienda durante la apertura.</p>
+            <div><b data-field="conversion-trafico-dia">16,5%</b><small>captación desde el tráfico exterior</small></div>
+          </div>
+        </div>
+
+        <div class="phase-grid" id="phaseGrid">
+          <article>
+            <span>Previo</span>
+            <h3>Comunicación de apertura</h3>
+            <p>Free press, redes, pauta digital, CRM y espacios BTL prepararon la convocatoria antes de la apertura.</p>
+            <b>$14,5M · Promedio $2,9M/día</b>
+          </article>
+          <article class="active-phase">
+            <span>Día del evento</span>
+            <h3>Conversión y experiencia</h3>
+            <p>Brindis, corte de cinta, desfile, catering, DJ y personal shopper concentraron tráfico y conversión.</p>
+            <b>$15,0M · 25 transacciones</b>
+          </article>
+          <article>
+            <span>Posterior</span>
+            <h3>Sostenimiento de venta</h3>
+            <p>Pauta digital, pantallas exteriores, CRM y bono de recompra continúan sosteniendo la venta.</p>
+            <b>$86,0M · Promedio $3,7M/día</b>
+          </article>
+        </div>
+
+        <h3 class="subsection-title">Indicadores complementarios</h3>
+        <div class="result-grid" id="resultGrid">
+          <article>
+            <b>Venta incremental</b>
+            <strong>+18%</strong>
+            <p>La tienda superó el promedio de venta frente a fines de semana comparables.</p>
+          </article>
+          <article>
+            <b>Clientes VIP</b>
+            <strong>34</strong>
+            <p>Base priorizada con mejor conversión y alto potencial de recompra.</p>
+          </article>
+          <article>
+            <b>Conversión en tienda</b>
+            <strong>28%</strong>
+            <p>La dinámica comercial ayudó a cerrar ventas durante la jornada.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell split-section" id="gastos">
+      <div>
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">03 / Inversión</p>
+            <h2>Gastos del evento</h2>
+          </div>
+        </div>
+        <div class="spend-summary">
+          <div><span>Inversión total</span><strong data-field="gasto-total">$19,4M</strong></div>
+          <div class="cash-spend"><span>Pagado en efectivo</span><strong data-field="gasto-efectivo">$14,8M</strong></div>
+          <div class="barter-spend"><span>Canje de prendas</span><strong data-field="gasto-canje">$4,6M</strong></div>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="expense-table">
+          <thead>
+            <tr><th>Categoría</th><th>Proveedor</th><th>Concepto</th><th>Modalidad</th><th>Valor</th><th>Observaciones</th></tr>
+          </thead>
+          <tbody id="expenseRows">
+            <tr><td>Experiencia</td><td>Proveedor evento</td><td>Catering y punto de hidratación</td><td><span class="payment-badge cash">Efectivo</span></td><td>$2,7M</td><td>Pago directo al proveedor</td></tr>
+            <tr><td>Comunicación</td><td>Influencer</td><td>Contenido de apertura</td><td><span class="payment-badge barter">Canje de prendas</span></td><td>$1,5M</td><td>Entregado en producto</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section shell" id="acciones">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">04 / Acciones y dinámicas</p>
+          <h2>Ejecución comercial</h2>
+        </div>
+      </div>
+      <div class="action-grid" id="actionGrid">
+        <article><span>CRM</span><h3>Invitación clientes VIP</h3><p>Segmentación de clientes activos y comunicación personalizada para agendar asistencia.</p><b>Base impactada: 520</b></article>
+        <article><span>BTL</span><h3>Experiencia de reapertura</h3><p>DJ, catering y foto cabina para generar permanencia, contenido orgánico y conversación en tienda.</p><b>86 asistentes</b></article>
+        <article><span>Dinámica comercial</span><h3>Beneficio por compra</h3><p>Regalo especial y asesoría personalizada para impulsar ATV y UPT durante la jornada.</p><b>UPT 2,1</b></article>
+      </div>
+      <div class="table-wrap dynamics-wrap">
+        <table>
+          <thead>
+            <tr><th>Dinámica comercial</th><th>Mecánica</th><th>Lectura / resultado</th></tr>
+          </thead>
+          <tbody id="dynamicRows">
+            <tr><td>Regalo por compra</td><td>Obsequio desde compra mínima</td><td>Impulso al ticket promedio</td></tr>
+            <tr><td>Bono recompra</td><td>Bono de $100.000</td><td>Sostenimiento posterior de la venta</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="digital-feature" id="pauta-digital">
+        <div class="channel-heading">
+          <div>
+            <span>Inversión de comunicación</span>
+            <h3>Resultados de pauta digital</h3>
+          </div>
+          <p>Lectura consolidada de los canales que impulsaron la convocatoria y sostuvieron la comunicación posterior.</p>
+        </div>
+        <div class="digital-summary">
+          <article><span>Inversión digital</span><strong data-field="digital-investment">$6,2M</strong><small>Consumo reportado en plataformas</small></article>
+          <article><span>Impresiones</span><strong data-field="digital-impressions">1,72M</strong><small>Alcance acumulado</small></article>
+          <article><span>Clics</span><strong data-field="digital-clicks">3.009</strong><small>Interacciones hacia el contenido</small></article>
+          <article><span>Costo por clic</span><strong data-field="digital-cpc">$2.046</strong><small>Eficiencia consolidada</small></article>
+        </div>
+        <div class="digital-grid" id="digitalGrid">
+          <article><span>YouTube</span><strong>1,04M</strong><p>impresiones · 0,2% CTR</p><div><b>1.548</b><small>clics · inversión $4,2M</small></div></article>
+          <article><span>Meta</span><strong>676K</strong><p>impresiones · 0,2% CTR</p><div><b>1.461</b><small>clics · inversión $2,0M</small></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section evidence-section" id="evidencias">
+      <div class="shell">
+        <div class="section-heading light">
+          <div>
+            <p class="eyebrow">05 / Evidencias fotográficas</p>
+            <h2>Momentos que soportan el análisis</h2>
+          </div>
+        </div>
+        <div class="photo-grid" id="photoGrid">
+          <article class="photo-card featured">
+            <img src="assets/evento-principal.jpg" alt="Vista principal del evento">
+            <div><span>Experiencia</span><h3>Reapertura con alto impacto visual</h3><p>Ambientación de tienda y experiencia inicial para clientes invitados.</p></div>
+          </article>
+          <article class="photo-card">
+            <img src="assets/evento-experiencia.jpg" alt="Experiencia en tienda">
+            <div><span>Cliente</span><h3>Interacción con asistentes</h3><p>Atención personalizada para impulsar conversión y recompra.</p></div>
+          </article>
+          <article class="photo-card">
+            <img src="assets/evento-dinamica.jpg" alt="Dinámica comercial">
+            <div><span>Dinámica</span><h3>Activación comercial</h3><p>Beneficio táctico para fortalecer ATV, UPT y cierre de venta.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell closing" id="conclusiones">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">06 / Decisiones</p>
+          <h2>Conclusiones y próximos pasos</h2>
+        </div>
+      </div>
+      <div class="closing-grid">
+        <article><span>Conclusión</span><p data-field="conclusion">El evento fue rentable para el objetivo comercial y fortaleció la percepción de tienda renovada.</p></article>
+        <article><span>Próximo paso</span><p data-field="proximos-pasos">Realizar seguimiento a clientes asistentes durante los próximos 15 días y medir recompra.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="assets/ub-cuarenta.png" alt="UB Cuarenta">
+    <p>Informe gerencial de eventos</p>
+    <span>2026</span>
+  </footer>
+
+</body>
+</html>
